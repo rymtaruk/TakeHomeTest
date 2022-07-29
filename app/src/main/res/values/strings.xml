@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TakeHome_Reynard</string>
+    <string name="search_artist">Search artist</string>
+    <string name="is_playing">Is Playing</string>
+</resources>
