@@ -94,6 +94,8 @@ class MainViewModel @Inject constructor(private val trackRepository: TrackReposi
 
     override fun onCleared() {
         super.onCleared()
-        disposable!!.dispose()
+        if (disposable!=null){
+            disposable!!.dispose()
+        }
     }
 }

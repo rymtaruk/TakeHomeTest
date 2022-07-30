@@ -56,7 +56,6 @@ class MainActivity : AppCompatActivity(), AdapterListener<TrackData> {
     }
 
     private fun onInitView() {
-
         binding.rvItems.apply {
             layoutManager = LinearLayoutManager(
                 this@MainActivity,
@@ -138,13 +137,17 @@ class MainActivity : AppCompatActivity(), AdapterListener<TrackData> {
 
     private fun onObserverData() {
         viewModel.getResponseData().observeForever {
+            binding.tvError.visibility = View.GONE
             adapter = MainAdapter(it)
             binding.rvItems.adapter = adapter
             adapter.listener = this
         }
 
         viewModel.getResponseMessage().observeForever {
-            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+            binding.tvError.text = it
+            binding.tvError.visibility = View.VISIBLE
+            binding.viewLoading.root.visibility = View.GONE
+            binding.rvItems.visibility = View.GONE
         }
 
         viewModel.isShowLoading().observeForever {
@@ -182,6 +185,7 @@ class MainActivity : AppCompatActivity(), AdapterListener<TrackData> {
             binding.sbProgress.progress = currentStop
             binding.tvProgress.text = "00:00/00:00"
         }
+
         mediaPlayer.setOnErrorListener { _, code, extra ->
             return@setOnErrorListener viewModel.extractPlayerError(code, extra)
         }
