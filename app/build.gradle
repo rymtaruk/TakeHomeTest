@@ -35,6 +35,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    testOptions {
+        unitTests.returnDefaultValues = true // add this
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
 }
 
 dependencies {

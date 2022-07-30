@@ -30,7 +30,7 @@ class TestApiModule {
             .build()
     }
 
-    fun httpClient(): OkHttpClient {
+    private fun httpClient(): OkHttpClient {
         val httpLoggingInterceptor = HttpLoggingInterceptor(HttpLoggingInterceptor.Logger.DEFAULT)
         val clientBuilder = OkHttpClient.Builder()
         if (BuildConfig.DEBUG) {

@@ -19,11 +19,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fita.test.core.di.util.ViewModelFactory
+import com.fita.test.takehometest.BaseApplication
 import com.fita.test.takehometest.R
 import com.fita.test.takehometest.databinding.ActivityMainBinding
 import com.fita.test.takehometest.di.injector.Injector
 import com.fita.test.takehometest.model.TrackData
 import com.fita.test.takehometest.utils.AdapterListener
+import dagger.android.AndroidInjection
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
@@ -44,7 +46,7 @@ class MainActivity : AppCompatActivity(), AdapterListener<TrackData> {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Injector.getInstance(this)?.androidInjector()?.inject(this)
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
         binding = ActivityMainBinding.inflate(layoutInflater)

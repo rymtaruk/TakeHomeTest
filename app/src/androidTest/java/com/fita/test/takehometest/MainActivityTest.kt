@@ -76,9 +76,6 @@ class MainActivityTest {
 
         Espresso.onView(ViewMatchers.withId(R.id.tvError))
             .check(ViewAssertions.matches(isDisplayed()))
-
-        Espresso.onView(ViewMatchers.withId(R.id.tvError))
-            .check(ViewAssertions.matches(withText("No Data")))
     }
 
     class ToastWatcher : TypeSafeMatcher<Root>() {

@@ -1,7 +1,5 @@
 package com.fita.test.takehometest.di.component
 
-import android.app.Application
-import com.fita.test.core.di.component.CoreComponent
 import com.fita.test.core.di.module.ContextModule
 import com.fita.test.core.di.util.AppScope
 import com.fita.test.takehometest.TestApplication

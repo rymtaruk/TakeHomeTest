@@ -7,7 +7,6 @@ import com.fita.test.core.di.component.CoreComponentProvider
 import com.fita.test.core.di.component.DaggerCoreComponent
 import com.fita.test.core.di.module.ProviderModule
 import com.fita.test.takehometest.di.component.AppComponent
-import com.fita.test.takehometest.di.component.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
@@ -15,7 +14,7 @@ import javax.inject.Inject
 
 class Injector private constructor(private val applicationContext: Application) : HasAndroidInjector, CoreComponentProvider {
 
-    private val appComponent: AppComponent?
+//    private val appComponent: AppComponent?
     private var coreComponent: CoreComponent? = null
 
     @JvmField
@@ -23,11 +22,11 @@ class Injector private constructor(private val applicationContext: Application) 
     var appInjector: DispatchingAndroidInjector<Any>? = null
 
     init {
-        appComponent = DaggerAppComponent.builder()
-            .application(applicationContext)
-            .coreComponent(provideCoreComponent())
-            .build()
-        appComponent.inject(this)
+//        appComponent = DaggerAppComponent.builder()
+//            .application(applicationContext)
+//            .coreComponent(provideCoreComponent())
+//            .build()
+//        appComponent.inject(this)
 
     }
 
