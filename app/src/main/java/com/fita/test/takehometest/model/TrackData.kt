@@ -1,9 +1,10 @@
 package com.fita.test.takehometest.model
 
-class TrackData {
-    var artistName: String? = null
-    var collectionName: String? = null
-    var trackName: String? = null
-    var previewUrl: String? = null
-    var artworkUrl100: String? = null
+class TrackData constructor(
+    var artistName: String,
+    var collectionName: String,
+    var trackName: String,
+    var previewUrl: String,
+    var artworkUrl100: String
+) {
 }

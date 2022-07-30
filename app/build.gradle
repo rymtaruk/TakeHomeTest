@@ -67,6 +67,9 @@ dependencies {
     //Chuck Logging for debug mode
     implementation 'com.github.chuckerteam.chucker:library:3.5.2'
 
+    //Json
+    implementation 'com.google.code.gson:gson:2.8.9'
+
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.13.2'
     kapt 'com.github.bumptech.glide:compiler:4.13.2'
@@ -75,4 +78,8 @@ dependencies {
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
     implementation project(path: ':core')
+
+    //Mockito
+    testImplementation 'org.mockito:mockito-inline:3.10.0'
+    androidTestImplementation 'org.mockito:mockito-android:3.10.0'
 }

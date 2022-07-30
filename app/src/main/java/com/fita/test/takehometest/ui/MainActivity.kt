@@ -266,8 +266,8 @@ class MainActivity : AppCompatActivity(), AdapterListener<TrackData> {
 
     override fun onClick(context: Context, data: TrackData, position: Int) {
         this.position = position
-        if (data.previewUrl != null) {
-            this.mediaUri = data.previewUrl!!
+        if (data.previewUrl.isNotEmpty()) {
+            this.mediaUri = data.previewUrl
             playMusic(mediaUri)
             if (!binding.cvIndicator.isShown) {
                 val animation = AnimationUtils.loadAnimation(this, R.anim.show_up)
