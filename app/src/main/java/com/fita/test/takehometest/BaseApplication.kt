@@ -23,5 +23,4 @@ class BaseApplication : DaggerApplication(), CoreComponentProvider {
         }
         return coreComponent!!
     }
-
 }

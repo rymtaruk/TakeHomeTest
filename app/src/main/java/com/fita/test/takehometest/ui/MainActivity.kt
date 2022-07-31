@@ -2,6 +2,7 @@ package com.fita.test.takehometest.ui
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.KeyguardManager
 import android.content.Context
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -11,6 +12,8 @@ import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.WindowManager
+import android.view.WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
 import android.widget.SeekBar
@@ -19,10 +22,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fita.test.core.di.util.ViewModelFactory
-import com.fita.test.takehometest.BaseApplication
+import com.fita.test.takehometest.BuildConfig
 import com.fita.test.takehometest.R
 import com.fita.test.takehometest.databinding.ActivityMainBinding
-import com.fita.test.takehometest.di.injector.Injector
 import com.fita.test.takehometest.model.TrackData
 import com.fita.test.takehometest.utils.AdapterListener
 import dagger.android.AndroidInjection
