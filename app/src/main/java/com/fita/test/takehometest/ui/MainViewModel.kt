@@ -1,7 +1,6 @@
 package com.fita.test.takehometest.ui
 
 import android.media.MediaPlayer
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,7 +8,6 @@ import com.fita.test.takehometest.api.repositories.TrackRepository
 import com.fita.test.takehometest.model.BaseResult
 import com.fita.test.takehometest.model.TrackData
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
@@ -47,7 +45,7 @@ class MainViewModel @Inject constructor(private val trackRepository: TrackReposi
                 override fun onSuccess(t: BaseResult<MutableList<TrackData>>) {
                     isLoading.value = false
                     if (t.resultCount > 0) {
-                        trackData = t.results!!
+                        trackData = t.results
                         responseData.value = t.results
                     } else {
                         responseMessage.value = "No Data"

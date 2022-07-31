@@ -1,15 +1,12 @@
 package com.fita.test.takehometest.di.component
 
-import android.app.Application
 import com.fita.test.core.di.component.CoreComponent
 import com.fita.test.core.di.module.ContextModule
 import com.fita.test.core.di.util.AppScope
 import com.fita.test.takehometest.BaseApplication
-import com.fita.test.takehometest.di.injector.Injector
 import com.fita.test.takehometest.di.module.ActivityModule
 import com.fita.test.takehometest.di.module.ApiModule
 import com.fita.test.takehometest.di.module.ViewModelModule
-import com.fita.test.takehometest.ui.MainActivity
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule

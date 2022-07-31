@@ -6,5 +6,4 @@ class TrackData constructor(
     var trackName: String,
     var previewUrl: String,
     var artworkUrl100: String
-) {
-}
+)
