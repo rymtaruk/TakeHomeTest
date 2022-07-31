@@ -59,7 +59,6 @@ Android 6.0 - 12.0
 
 10. [Gson](https://github.com/google/gson) for converting object to json 
 
-
 ### Test cases 
 1. UI testing is implemented with Espresso
 
@@ -77,6 +76,9 @@ Android 6.0 - 12.0
 5. Sync project until finish
 
 6. run app to device/simulator
+
+### Download apk via AppCenter
+App Center [download](https://install.appcenter.ms/users/rmtaruk-maybank.co.id/apps/takehometest/distribution_groups/fita/releases/5)
 
 ### Created By
 
