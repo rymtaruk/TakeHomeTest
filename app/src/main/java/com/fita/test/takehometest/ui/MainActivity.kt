@@ -2,7 +2,6 @@ package com.fita.test.takehometest.ui
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.KeyguardManager
 import android.content.Context
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -12,8 +11,6 @@ import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.view.WindowManager
-import android.view.WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
 import android.widget.SeekBar
@@ -22,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fita.test.core.di.util.ViewModelFactory
-import com.fita.test.takehometest.BuildConfig
 import com.fita.test.takehometest.R
 import com.fita.test.takehometest.databinding.ActivityMainBinding
 import com.fita.test.takehometest.model.TrackData
@@ -74,15 +70,21 @@ class MainActivity : AppCompatActivity(), AdapterListener<TrackData> {
         binding.etSearch.addTextChangedListener(object : TextWatcher {
             @SuppressLint("SetTextI18n")
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if (!mediaPlayer.isPlaying){
+                    if (binding.cvIndicator.isShown) {
+                        val animation = AnimationUtils.loadAnimation(this@MainActivity, R.anim.dismiss_down)
+                        binding.cvIndicator.animation = animation
+                        binding.cvIndicator.visibility = View.GONE
+                    }
+                }
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                return
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                if (!p0.isNullOrBlank()) {
-                    startTimer(p0.toString())
+                if (binding.etSearch.text.toString().trim() != ""){
+                    startTimer()
                 }
             }
         })
@@ -245,7 +247,7 @@ class MainActivity : AppCompatActivity(), AdapterListener<TrackData> {
         })
     }
 
-    private fun startTimer(query: String) {
+    private fun startTimer() {
         cancelTimer()
         countDown = object : CountDownTimer(1000, 1000) {
             override fun onTick(p0: Long) {
@@ -254,7 +256,7 @@ class MainActivity : AppCompatActivity(), AdapterListener<TrackData> {
 
             override fun onFinish() {
                 hideKeyboard()
-                viewModel.loadData(query)
+                viewModel.loadData(binding.etSearch.text.toString())
             }
 
         }
